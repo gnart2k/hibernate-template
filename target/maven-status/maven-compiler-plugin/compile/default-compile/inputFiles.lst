@@ -1,0 +1,10 @@
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/common/utils/Validator.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/entities/MovieTheater/CinemaRoom.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/entities/MovieTheater/CinemaRoomDetail.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/repository/Repo.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/App.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/entities/MovieTheater/Seat.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/repository/RoomRepo.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/common/utils/Connection.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/repository/RoomDetail.java
+/home/trg/se/fsoft/hibernateTemplate/src/main/java/fa/training/repository/SeatRepo.java
