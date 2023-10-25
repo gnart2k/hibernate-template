@@ -8,7 +8,7 @@
     <session-factory>
         <!-- JDBC Database connection settings for MS SQL Server -->
         <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=hibernate;encrypt=true;trustServerCertificate=true</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=movietheaterdb;encrypt=true;trustServerCertificate=true</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password">Trangbg2k</property>
 
