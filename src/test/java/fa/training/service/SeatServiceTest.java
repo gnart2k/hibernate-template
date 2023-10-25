@@ -27,7 +27,6 @@ public class SeatServiceTest {
         List<Seat> seats = seatService.findAllSeat();
         assertNotNull(seats);
     }
-
     @Test
     public void testAddSeatValid() {
         Seat validSeat = createValidSeat();
@@ -45,15 +44,24 @@ public class SeatServiceTest {
     }
 
     @Test
-    public void testRemoveSeat() {
-        Seat seatToRemove = createSeatToRemove();
+    public void testRemoveSeatValid() {
+        List<Seat> seats= seatService.findAllSeat();
+        Seat validSeat = seats.get(seats.size() - 1);
 
-        boolean result = seatService.removeSeat(seatToRemove);
+        boolean result = seatService.removeSeat(validSeat);
         assertTrue(result);
     }
 
     @Test
-    public void testUpdateSeat() {
+    public void testRemoveSeatInvalid() {
+        Seat invalidSeat = createSeatToRemove();
+
+        boolean result = seatService.removeSeat(invalidSeat);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testUpdateSeatValid() {
         Seat validSeat = createValidSeat();
 
         boolean result = seatService.updateSeat(validSeat);
@@ -61,10 +69,25 @@ public class SeatServiceTest {
     }
 
     @Test
-    public void testFindOneSeat() {
+    public void testUpdateSeatInvalidStatus() {
+        Seat invalidSeat = createInvalidSeatWithInvalidStatus();
+
+        boolean result = seatService.updateSeat(invalidSeat);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testFindOneSeatValid() {
         long seatId = 1; // Replace with a valid seat ID
         Seat seat = seatService.findOneSeat(seatId);
         assertNotNull(seat);
+    }
+
+    @Test
+    public void testFindOneSeatInvalid() {
+        long invalidSeatId = -1; // Use an invalid seat ID
+        Seat seat = seatService.findOneSeat(invalidSeatId);
+        assertNull(seat);
     }
 
     // Helper methods to create sample Seat objects for testing
@@ -86,7 +109,9 @@ public class SeatServiceTest {
 
     private Seat createSeatToRemove() {
         Seat seat = new Seat();
-        // Set properties as needed
         return seat;
     }
+
+
 }
+

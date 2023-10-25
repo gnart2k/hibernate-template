@@ -8,6 +8,10 @@ import java.util.List;
 public class RoomService implements IRoomService {
   private RoomRepo roomRepo;
 
+  public RoomService(RoomRepo roomRepo) {
+    this.roomRepo = roomRepo;
+  }
+
   @Override
   public List<CinemaRoom> getAllRooms() {
     try {
@@ -31,6 +35,10 @@ public class RoomService implements IRoomService {
   @Override
   public boolean removeRoom(CinemaRoom cinemaRoom) {
     try {
+      boolean roomAvailable = findOneRoom(cinemaRoom.getCinemaRoomId()) != null;
+      if(!roomAvailable){
+        return false;
+      }
       return roomRepo.delete(cinemaRoom);
     } catch (Exception e) {
       e.printStackTrace();

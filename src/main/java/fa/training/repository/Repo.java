@@ -2,6 +2,8 @@ package fa.training.repository;
 
 import fa.training.common.utils.Connection;
 import java.util.List;
+
+import fa.training.entities.MovieTheater.Seat;
 import org.hibernate.Session;
 import org.hibernate.query.SelectionQuery;
 

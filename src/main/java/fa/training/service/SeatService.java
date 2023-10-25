@@ -53,6 +53,10 @@ public class SeatService implements ISeatService {
   @Override
   public boolean removeSeat(Seat seat) {
     try {
+      boolean availble = findOneSeat(seat.getSeatId()) != null;
+      if (!availble){
+        return false;
+      }
       return seatRepo.delete(seat);
     } catch (Exception e) {
       e.printStackTrace();
@@ -84,4 +88,6 @@ public class SeatService implements ISeatService {
       return null;
     }
   }
+
+
 }

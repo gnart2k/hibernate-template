@@ -8,6 +8,11 @@ import java.util.List;
 public class RoomDetailService implements IRoomDetailService {
   private RoomDetailRepo roomRepo;
 
+
+  public RoomDetailService(RoomDetailRepo roomRepo) {
+    this.roomRepo = roomRepo;
+  }
+
   @Override
   public List<CinemaRoomDetail> getAllRooms() {
     try {
@@ -31,6 +36,8 @@ public class RoomDetailService implements IRoomDetailService {
   @Override
   public boolean removeRoom(CinemaRoomDetail cinemaRoomDetail) {
     try {
+      boolean roomAvailable = roomRepo.findOne(cinemaRoomDetail.getCinemaRoomDetailID()) != null;
+      if(!roomAvailable) return false;
       return roomRepo.delete(cinemaRoomDetail);
     } catch (Exception e) {
       e.printStackTrace();
